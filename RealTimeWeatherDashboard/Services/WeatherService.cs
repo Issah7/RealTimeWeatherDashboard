@@ -8,7 +8,7 @@ namespace RealTimeWeatherDashboard.Services
     public class WeatherService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _apiKey = "ff05c2b41fda18933ca0fcc5e8d1794c";
+        private readonly string _apiKey = "";
         private readonly string _baseApiUrl = "https://api.openweathermap.org/data/2.5/weather";
 
         public WeatherService(HttpClient httpClient)
