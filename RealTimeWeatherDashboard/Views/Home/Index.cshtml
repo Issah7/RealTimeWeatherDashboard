@@ -1,8 +1,33 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model WeatherData
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <h1>Real-Time Weather Dashboard</h1>
+    <form asp-action="GetWeather" asp-controller="Weather" method="post" id="weatherForm">
+        <input type="text" name="city" placeholder="Enter City Name" required />
+        <button type="submit" class="btn btn-primary">Get Weather</button>
+    </form>
+    <div id="loader"></div>
+    <div id="weatherResult">
+        <!-- Weather data will be loaded here -->
+    </div>
+
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("#weatherForm").on("submit", function (event) {
+            event.preventDefault();
+            var city = $("input[name='city']").val();
+
+            // Show the loader
+            $("#loader").show();
+
+            $.post('/Weather/GetWeather', { city: city }, function (data) {
+                $('#weatherResult').html(data);
+                // Hide the loader
+                $("#loader").hide();
+            });
+        });
+    });
+</script>
+

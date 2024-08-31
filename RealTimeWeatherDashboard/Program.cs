@@ -1,3 +1,5 @@
+using RealTimeWeatherDashboard.Services;
+
 namespace RealTimeWeatherDashboard
 {
     public class Program
@@ -8,6 +10,9 @@ namespace RealTimeWeatherDashboard
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddHttpClient<WeatherService>();
+
 
             var app = builder.Build();
 

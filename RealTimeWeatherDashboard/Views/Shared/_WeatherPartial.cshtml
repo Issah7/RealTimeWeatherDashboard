@@ -1,0 +1,53 @@
+﻿@model WeatherData
+
+@if (Model != null)
+{
+    <div class="weather-info">
+        <div class="icon-description">
+            <img src="https://openweathermap.org/img/w/@(Model.Weather[0].Icon).png" alt="Weather Icon" />
+            <h2>@Model.Weather[0].Description</h2>
+        </div>
+
+        <p class="temperature">@Model.Main.Temp °C</p>
+        <p class="humidity">Humidity: @Model.Main.Humidity %</p>
+        <p class="wind-speed">Wind Speed: @Model.Wind.Speed m/s</p>
+    </div>
+}
+else
+{
+    <p class="error">Weather data not available. Please try again.</p>
+}
+
+<style>
+    .weather-info {
+        background-color: #f0f0f0;
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 400px;
+        margin: 20px auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .icon-description {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+        .icon-description img {
+            width: 50px;
+            height: 50px;
+        }
+
+    .temperature, .humidity, .wind-speed {
+        font-size: 1.2em;
+        margin: 5px 0;
+    }
+
+    .error {
+        color: red;
+        text-align: center;
+    }
+</style>
