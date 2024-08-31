@@ -20,13 +20,24 @@ html {
 /* Global Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f4f7;
+    background: linear-gradient(to bottom, #87CEEB, #f0f4f7); /* Gradient from light blue to lighter sky blue */
     margin: 0;
     padding: 0;
+    height: 100vh;
+    color: #333; /* Darker color for text */
+}
+
+@keyframes moveClouds {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 100% 0;
+    }
 }
 
 .container {
-    max-width: 800px;
     margin: 30px auto;
     padding: 20px;
     background-color: #fff;
